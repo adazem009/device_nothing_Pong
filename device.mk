@@ -80,6 +80,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
+# 64-bit audio on 32+64 builds
+SOONG_CONFIG_NAMESPACES += android_hardware_audio
+SOONG_CONFIG_android_hardware_audio += \
+	run_64bit
+SOONG_CONFIG_android_hardware_audio_run_64bit := true
+
 # Bluetooth
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
